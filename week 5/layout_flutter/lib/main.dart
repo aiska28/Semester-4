@@ -52,6 +52,24 @@ class MyApp extends StatelessWidget {
       ],
     );
 
+    Widget textSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: const Text(
+        'Gunung Bromo merupakan salah satu destinasi wisata '
+        'terkenal di Indonesia yang terletak di kawasan Taman Nasional '
+        'Bromo Tengger Semeru, Jawa Timur. Gunung ini memiliki keindahan '
+        'alam yang sangat memukau, terutama saat matahari terbit yang '
+        'menampilkan pemandangan spektakuler dengan latar pegunungan dan '
+        'lautan pasir yang luas. Selain itu, Gunung Bromo juga memiliki '
+        'kawah aktif yang menjadi daya tarik utama bagi para wisatawan. '
+        'Keunikan budaya masyarakat Suku Tengger yang masih menjaga tradisi '
+        'juga menambah nilai wisata dari tempat ini.\n\n'
+        'Aiska Oca Amalia / 244107060035',
+        softWrap: true,
+        textAlign: TextAlign.justify,
+      ),
+    );
+
     return MaterialApp(
       title: 'Flutter layout: Aiska Oca Amalia, 244107060035',
       home: Scaffold(
@@ -62,6 +80,7 @@ class MyApp extends StatelessWidget {
           children: [
             titleSection,
             buttonSection,
+            textSection,
           ],
         ),
       ),
