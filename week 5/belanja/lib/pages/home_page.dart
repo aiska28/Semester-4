@@ -8,14 +8,14 @@ class HomePage extends StatelessWidget {
     Item(
       name: 'Sugar',
       price: 5000,
-      image: 'assets/sugar.png',
+      image: 'assets/sugar.jpg',
       stock: 10,
       rating: 4.5,
     ),
     Item(
       name: 'Salt',
       price: 2000,
-      image: 'assets/salt.png',
+      image: 'assets/salt.jpg',
       stock: 15,
       rating: 4.0,
     ),
@@ -28,7 +28,6 @@ class HomePage extends StatelessWidget {
         title: const Text('Shopping List'),
       ),
 
-      // 🔥 GRID VIEW (pengganti ListView)
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: GridView.builder(
@@ -50,7 +49,6 @@ class HomePage extends StatelessWidget {
                   arguments: item,
                 );
               },
-
               child: Card(
                 elevation: 3,
                 child: Padding(
@@ -58,8 +56,6 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      
-                      // 🔥 IMAGE
                       Expanded(
                         child: Center(
                           child: Hero(
@@ -68,24 +64,13 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-
                       const SizedBox(height: 8),
-
-                      // NAME
                       Text(
                         item.name,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
-
-                      // PRICE
                       Text("Rp ${item.price}"),
-
-                      // RATING
                       Text("⭐ ${item.rating}"),
-
-                      // STOCK
                       Text("Stock: ${item.stock}"),
                     ],
                   ),
@@ -93,6 +78,14 @@ class HomePage extends StatelessWidget {
               ),
             );
           },
+        ),
+      ),
+
+      bottomNavigationBar: const Padding(
+        padding: EdgeInsets.all(10),
+        child: Text(
+          "Nama: Aiska Oca Amalia | NIM: 244107060035",
+          textAlign: TextAlign.center,
         ),
       ),
     );

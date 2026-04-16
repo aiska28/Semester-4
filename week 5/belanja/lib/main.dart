@@ -13,10 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Shopping List',
+
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
-        '/item': (context) => const ItemPage(),
+        '/item': (context) => ItemPage(),
       },
     );
   }
