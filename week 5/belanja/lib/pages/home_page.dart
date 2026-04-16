@@ -5,8 +5,20 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final List<Item> items = [
-    Item(name: 'Sugar', price: 5000),
-    Item(name: 'Salt', price: 2000),
+    Item(
+      name: 'Sugar',
+      price: 5000,
+      image: 'assets/sugar.png',
+      stock: 10,
+      rating: 4.5,
+    ),
+    Item(
+      name: 'Salt',
+      price: 2000,
+      image: 'assets/salt.png',
+      stock: 15,
+      rating: 4.0,
+    ),
   ];
 
   @override
@@ -15,11 +27,18 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Shopping List'),
       ),
-      body: Container(
-        margin: const EdgeInsets.all(8),
-        child: ListView.builder(
-          padding: const EdgeInsets.all(8),
+
+      // 🔥 GRID VIEW (pengganti ListView)
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: GridView.builder(
           itemCount: items.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.70,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+          ),
           itemBuilder: (context, index) {
             final item = items[index];
 
@@ -31,20 +50,43 @@ class HomePage extends StatelessWidget {
                   arguments: item,
                 );
               },
+
               child: Card(
-                child: Container(
-                  margin: const EdgeInsets.all(8),
-                  child: Row(
+                elevation: 3,
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      
+                      // 🔥 IMAGE
                       Expanded(
-                        child: Text(item.name),
-                      ),
-                      Expanded(
-                        child: Text(
-                          item.price.toString(),
-                          textAlign: TextAlign.end,
+                        child: Center(
+                          child: Hero(
+                            tag: item.name,
+                            child: Image.asset(item.image),
+                          ),
                         ),
                       ),
+
+                      const SizedBox(height: 8),
+
+                      // NAME
+                      Text(
+                        item.name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      // PRICE
+                      Text("Rp ${item.price}"),
+
+                      // RATING
+                      Text("⭐ ${item.rating}"),
+
+                      // STOCK
+                      Text("Stock: ${item.stock}"),
                     ],
                   ),
                 ),
