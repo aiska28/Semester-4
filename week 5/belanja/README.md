@@ -4,13 +4,19 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Name : Aiska Oca Amalia
+Class : SIB 2G
+NIM : 244107060035
 
-A few resources to get you started if this is your first Flutter project:
+![Screeshot Membangun Navigasi di Flutter](images/01.png)
+![Screeshot Membangun Navigasi di Flutter](images/02.png)
+Create a multi-page mobile app. The app being developed is a shopping list application. In this app, the screen will transition and send data to other pages. When an item is tapped, the data will be sent to the next page.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Screeshot Membangun Navigasi di Flutter](images/03.png)
+![Screeshot Membangun Navigasi di Flutter](images/04.png)
+In the next step, images were added to each item.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This app uses the go_router package instead of the standard Navigator.
+Navigation is handled by:
+```dart
+context.push('/item', extra: item);
