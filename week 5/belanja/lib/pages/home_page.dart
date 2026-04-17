@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/item.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -43,11 +44,7 @@ class HomePage extends StatelessWidget {
 
             return InkWell(
               onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/item',
-                  arguments: item,
-                );
+                context.push('/item', extra: item);
               },
               child: Card(
                 elevation: 3,

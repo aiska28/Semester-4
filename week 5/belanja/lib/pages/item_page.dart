@@ -2,50 +2,26 @@ import 'package:flutter/material.dart';
 import '../models/item.dart';
 
 class ItemPage extends StatelessWidget {
-  const ItemPage({super.key});
+  final Item item;
+
+  const ItemPage({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
-    final Item itemArgs =
-        ModalRoute.of(context)!.settings.arguments as Item;
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text(itemArgs.name),
-      ),
+      appBar: AppBar(title: Text(item.name)),
 
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Hero(
-                tag: itemArgs.name,
-                child: Image.asset(
-                  itemArgs.image,
-                  height: 200,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            Text(
-              itemArgs.name,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            Text("Price: Rp ${itemArgs.price}"),
-            Text("Stock: ${itemArgs.stock}"),
-            Text("Rating: ⭐ ${itemArgs.rating}"),
-          ],
-        ),
+      body: Column(
+        children: [
+          Hero(
+            tag: item.name,
+            child: Image.asset(item.image, height: 200),
+          ),
+          Text(item.name),
+          Text("Rp ${item.price}"),
+          Text("Stock: ${item.stock}"),
+          Text("⭐ ${item.rating}"),
+        ],
       ),
     );
   }

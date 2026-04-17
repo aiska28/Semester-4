@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
-import 'pages/item_page.dart';
+import 'router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,15 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Shopping List',
-
-      initialRoute: '/',
-      routes: {
-        '/': (context) => HomePage(),
-        '/item': (context) => ItemPage(),
-      },
+      routerConfig: router,
     );
   }
 }
